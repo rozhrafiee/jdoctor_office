@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'office'
+    'office',
     'rest_framework',
     'rest_framework_simplejwt',
     'django_filters',
@@ -139,7 +139,3 @@ REST_FRAMEWORK = {
     
 }
 
-SIMPLE_JWT={
-    "ACCESS_TOKEN_LIFETIME": timedelta(hours=5),
-    "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
-}

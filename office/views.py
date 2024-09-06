@@ -14,6 +14,8 @@ from rest_framework.permissions import IsAdminUser, IsAuthenticated
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import filters
 from .serializers import AppointmentSerializer, TransactionSerializer, PatientSerializer, ServicesSerializer
+
+
 class AppointmentListAPIView(ListAPIView):
     queryset = Appointment.objects.all()
     serializer_class = AppointmentSerializer

@@ -15,6 +15,8 @@ from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import filters
 from .serializers import AppointmentSerializer, TransactionSerializer, PatientSerializer, ServicesSerializer
 from .permissions import IsSuperUser
+
+
 class AppointmentListAPIView(ListAPIView):
     queryset = Appointment.objects.all()
     serializer_class = AppointmentSerializer
@@ -23,25 +25,30 @@ class AppointmentListAPIView(ListAPIView):
     filterset_fields = ["date"]
     search_fields = ["patient"]
 
+
 class AddApointment(CreateAPIView):
     queryset = Appointment.objects.all()
     serializer_class = AppointmentSerializer
     permission_classes = [IsAdminUser]
+
 
 class DeleteApointment(DestroyAPIView):
     queryset = Appointment.objects.all()
     serializer_class = AppointmentSerializer
     permission_classes = [IsAdminUser]
 
+
 class EditApointment(UpdateAPIView):
     queryset = Appointment.objects.all()
     serializer_class = AppointmentSerializer
     permission_class = [IsAdminUser]
 
+
 class ViewTransaction(ListAPIView):
     queryset = Transaction.objects.all()
     serializer_class = TransactionSerializer
     permission_classes = [IsSuperUser]
+
 
 class AddService(CreateAPIView):
     queryset = Services.objects.all()

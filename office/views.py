@@ -22,7 +22,7 @@ class AppointmentListAPIView(ListAPIView):
     filterset_fields = ["date"]
     search_fields = ["patient"]
 
-class AddApointmentAPIView(CreateAPIView):
+class AddApointment(CreateAPIView):
     queryset = Appointment.objects.all()
     serializer_class = AppointmentSerializer
     permission_classes = [IsAdminUser]
@@ -35,7 +35,10 @@ class DeleteApointment(DestroyAPIView):
 class EditApointment(UpdateAPIView):
     queryset = Appointment.objects.all()
     serializer_class = AppointmentSerializer
-    pagination_class = [IsAdminUser]
+    permission_class = [IsAdminUser]
 
-class             
+class ViewTransaction(ListAPIView):
+    queryset = Transaction.objects.all()
+    serializer_class = TransactionSerializer
+    permission_classes = []
 
